@@ -1,5 +1,5 @@
+from selenium.common.exceptions import *
 from selenium.webdriver.common.by import By
-
 
 
 class ElementUtil():
@@ -14,7 +14,10 @@ class ElementUtil():
         return self.driver.find_element(*byLocator)
 
     def doClear(self,byLocator):
-        self.getElement(byLocator).clear()
+        try:
+          self.getElement(byLocator).clear()
+        except NoSuchElementException:
+            print("Element not found with locator",byLocator)
 
     def doClick(self,byLocator):
         self.getElement(byLocator).click()

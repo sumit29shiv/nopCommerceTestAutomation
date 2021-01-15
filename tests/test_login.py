@@ -17,3 +17,4 @@ class Test_NoPCommerce_001_Login(bt):
         name = self.loginPage.doLogin(self.userName,self.password)
         print("Account name is:",name)
         assert name == Constants.ACCOUNT_NAME
+
